@@ -1,27 +1,66 @@
 \documentclass{beamer}
 
+\usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
 \usepackage{paratype}
 \usepackage{xcolor}
+\usepackage{colortbl}
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{booktabs}
 
 \usetheme{Darmstadt}
 \usecolortheme{seahorse}
+\usepackage{marvosym}
+\usepackage{tikz}
+\usetikzlibrary{graphs}
+\usetikzlibrary{shapes, arrows}
+\tikzstyle{decision} =
+        [
+                diamond,
+                draw,
+                fill = green!20,
+                text width = 6em,
+                text badly centered,
+                node distance = 2cm,
+                inner sep = 0pt
+        ]
+\tikzstyle{block} =
+        [
+                rectangle,
+                draw,
+                fill = blue!20,
+                text width = 7em,
+                text centered,
+                rounded corners,
+                minimum height = 3em
+        ]
+\tikzstyle{block0} =
+        [
+                rectangle,
+                draw,
+                fill = yellow!10,
+                text width = 13em,
+                rounded corners,
+                minimum width = 13em
+        ]
+\tikzstyle{line} =
+        [
+                draw,
+                -latex'
+        ]
+
+%Более крупный шрифт для подзаголовков титульного листа
+\setbeamerfont{institute}{size=\normalsize}
 
 \newcommand{\col}{\textcolor[rgb]{0.2,0.,0.55}}
-
-\title{{Сасалити}}
-\author{Мишка, Вовка, Юлька, Янка и Сергей\\}
-\date{\footnotesize{Москва "--- 2018}}
 
 \AtBeginSection[]{
   \begin{frame}
   \vfill
   \centering
   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
+    \LARGE\insertsectionhead\par%
   \end{beamercolorbox}
   \vfill
   \end{frame}
@@ -40,6 +79,24 @@
 
 \begin{document}
 
+\title{{Как не потерять 700 000 \EUR}}
+\author[%
+	Земцов С.\ А. \and Мошина Ю.\ Е. \and Нагорных Я.\ В. \and Назаров В.\ С. \and Фрайман М.\ И.
+]{%
+	\scriptsize
+	Земцов С.\ А. \and Мошина Ю.\ Е. \and Нагорных Я.\ В. \and Назаров В.\ С. \and Фрайман М.\ И.
+}
+\date{\footnotesize{Москва "--- 2018}}
+
+
+\begin{frame}
+\begin{center}
+\footnotesize{МГУ имени М. В. Ломоносова}\\
+\footnotesize{Механико-математический факультет}\\\vspace{10pt}
+\end{center}
+\titlepage
+\end{frame}
+
 \section{Недвижимость}
 
 	\subsection{План}
@@ -47,7 +104,7 @@
 		\begin{frame}
 			\frametitle{Вложение в недвижимость}
 			
-			Доступный бюджет "--- \textbf{240 тыс.\ евро} или около \textbf{18 млн.\ руб.}
+			Доступный бюджет "--- \textbf{240--300 тыс.\ евро} или около \textbf{18 млн.\ руб.}
 			
 			\vspace{\baselineskip}
 			\textbf{План действий:}
@@ -121,16 +178,18 @@
 				\centering
 				\begin{tabular}{ l r }
 					\toprule
-					Округ                 & м\textsuperscript{2}\ (тыс.\ руб) \\ \midrule
+					Округ                 & м\textsuperscript{2}\ (тыс.\ руб) \\
+					\midrule
 					Центральный           & 297                               \\
 					\textbf{Юго-Западный} & 200                               \\
-					Западный              & 184                               \\
+					\textbf{Западный}     & 184                               \\
 					Северо-Западный       & 174                               \\
 					Северный              & 167                               \\
 					Восточный             & 161                               \\
 					Северо-Восточный      & 152                               \\
 					Южный                 & 147                               \\
-					Юго-Восточный         & 139                               \\ \bottomrule
+					Юго-Восточный         & 139                               \\
+					\bottomrule
 				\end{tabular}
 			
 
@@ -177,109 +236,226 @@
 				\item этаж 3/9, недавний ремонт, дом 1958 года постройки, потолки 3,1~м.
 				\item цена 13 млн, примерно равна кадастровой стоимости.
 				\end{itemize}
+
+		\end{frame}
+
+		
+		\begin{frame}
+			\frametitle{Анализ Западного округа}
+			\textbf{Ещё конкретный пример:}
+				\begin{itemize}
+				\item 2-комн.\ квартира, 78,3 м\textsuperscript{2}.
+				\item Москва, ЗАО, район Раменки, Мичуринский просп., ЖК «Небо»
+				\item 8 мин.\ пешком до метро Раменки.
+				\item этаж 7--39/52.
+				\item готовность зданий "--- 2020 год.
+				\item цена 21--23 млн руб.
+				\end{itemize}
+
+		\end{frame}
+
+	\subsection{Сдача в аренду}
+		
+		\begin{frame}
+			\frametitle{Каковы условия?}
+		
+			\textbf{Сколько это стоит?} Стандартная арендная плата около 50--60 тыс.\ рублей.
 			
+			\textbf{Сколько человек проживает?} Можно до 4.
+			Такая квартира может сдаваться покомнатно: большая, например, для студентов с ребёнком, маленькая "--- для одного человека.
+			
+			\textbf{Кто оплачивает коммуналку?} Учитывая количество жильцов, могут сами платить.
+			
+			\textbf{Как быстро сдаётся?} Примерно неделя или две.
 		
 		\end{frame}
 		
+	\subsection{\$\$\$}
+	
 		\begin{frame}
-			\frametitle{}
+			\frametitle{Какова выгода?}
 		
+			\textbf{Сколько получим за аренду?} Примерно
+			\[
+				60\cdot60\,000 = 3\,600\,000 \text{руб.}
+			\]
+			
+			\textbf{За сколько продадим?} Из-за кризиса и надвигающейся смены политической обстановки (выборы президентов РФ и США в 2024) прогнозы разнятся, однако следует ожидать падения цены не более, чем на 5\% в год, то есть на уровне инфляции.
+			Таким образом, возможные исходы:
+			\begin{itemize}
+				\item Пессимистичный прогноз: выход в 0 без учёта инфляции.
+				\item Оптимистичный прогноз: примерно 3 млн выручки при покупки вторичного жилья, 6 млн для новостройки.
+			\end{itemize}
+			
+		
+		\end{frame}
+
+	\subsection{Итог}
+	
+		\begin{frame}
+			\frametitle{Что получается}
+		
+			\textbf{Есть плюсы:}
+			\begin{itemize}
+				\item стабильность рынка жилья
+				\item отсутствие рисков
+				\item квартира не убежит
+				\item возможность прогнозирования
+			\end{itemize}
+			
+			\textbf{Но есть и минусы:}
+			\begin{itemize}
+				\item переизбыток предложения на рынке новостроек
+				\item подверженность клиентов финансовым «затягиваниям поясов»
+				\item постоянный налог
+			\end{itemize}
 		
 		\end{frame}
 
 	\section[Металлы]{Вложение в драгоценные металлы}
 
-		\begin{frame}
-			\frametitle{Вовкины слиточки}	
+		\begin{frame}\frametitle{Что это?}
+		Вложение в драгоценные металлы является одним из средств сохранения сбережений. 
+		\textbf{\col{Золото, серебро, платина}} и \textbf{\col{палладий}} обладают высокой ликвидностью и в случае роста мировых цен на драгоценные металлы, могут потенциально принести  доход.
 		
-				180000 Евро = 13,273,200 рублей (5 декабря 2018 года Сбербанк)
-							  
-							  13641120 
-							  
-							  13,374,000 (30 ноября 2018 года Сбербанк)
-				
-				на 30 ноября 2018 года Сбербанк
-				
-				Стоимость слиточка золота 1000 гр == 2,755,000	рублей (ОМС)
-				
-				Стоимость слиточка палладия 100 гр == 275,000 рублей	(ОМС)	  
-				
-				Стоимость слиточка золота 1000 гр == 3,253,614	рублей 
-				
-				Стоимость слиточка палладия 100 гр == 327,391 рублей
-				
-				За последние три года стоимость золота выросла на $14\%$
-				
-				\qquad\qquad\qquad		пять лет на $102\%$	 в рубля и $0.64\%$ в долларах	
-					
-				За последние три года стоимость палладия выросла на $114\%$
-				
-				\qquad\qquad\qquad			пять лет на $234\%$	 в рубля и $61\%$ в долларах
+		\vspace{10pt}
+		Российский рынок драгметаллов напрямую зависит от состояния международного рынка. Единственный фактор, который
+		может сдерживать или усиливать рост котировок в России "--- это \textbf{изменение курса американского доллара к российскому рублю}.
+		\end{frame}
 
+
+		\begin{frame}\frametitle{Сколько можно купить?}
+			Сбербанк России осуществляет продажу и покупку мерных слитков серебра, палладия, золота и платины. 
+			
+			Их можно приобрести в следующей весовой номенклатуре:
+			\begin{center}
+			\begin{tabular}{lc}
+			\rowcolor{yellow!25}\textbf{серебро}: & от 50 до 1000 граммов\\
+			\rowcolor{yellow!15}\textbf{палладий}: & от 5 до 100 граммов\\
+			\rowcolor{yellow!25}\textbf{золото}: & от 1 до 1000 граммов\\
+			\rowcolor{yellow!15}\textbf{платина}:  & от 5 до 100 граммов\\
+			\end{tabular}
+			\end{center}
 		\end{frame}
 		
 		\begin{frame}
-			\frametitle{Таблица за слиточек золото 1000гр, палладий 100гр}
-			
-				\centering
-				\begin{tabular}{ l r r }
-					\toprule
-					Металл   & Рост (\%) & Приб./уб. (руб) \\ \midrule
-					Золото   & 14        & 45980           \\
-					         & 13        & 21410           \\
-					         & 12        & -3160           \\
-					         & 10        & -52300          \\[2mm]
-					Палладий & 100       & 209000          \\
-					         & 50        & 88000           \\
-					         & 20        & 15400           \\
-					         & 10        & -8800           \\ \bottomrule
+\begin{minipage}[h]{0.4\linewidth}
+\begin{center}
+{\includegraphics[width=1\linewidth]{p/vova.jpg}}
+\end{center}
+\end{minipage}
+\hspace{5pt}
+\begin{minipage}[h]{0.5\linewidth}
+Для совершения операции с драгметаллами необходим \textbf{паспорт} или другой документ, удостоверяющий личность.
+
+Каждый слиток сопровождается \textbf{\col{сертификатом качества}}, который является его своеобразным паспортом.
+\end{minipage}
+
+\vspace{5pt}
+\begin{minipage}[h]{1\linewidth} 
+
+Сделка оформляется \textbf{\col{актом приема-передачи}} и \textbf{\col{кассовыми документами}}.
+
+Операции с драгметаллами в слитках облагаются \textbf{НДС} в размере \textbf{\col{20\%}}.
+Однако, можно перевести слиток на \textbf{обезличенный металлический счет}.
+
+\end{minipage}
+		
+		\end{frame}
+
+
+		\begin{frame}
+			\frametitle{Что по чем?}	
+				По курсу на 30 ноября 180 000 евро = \textbf{13 374 000 руб}.
+			  
+			  \vspace{10pt}
+			  \begin{center}
+			  \textbf{\col{Стоимость слитка при обычной покупке}}
+			  \vspace{5pt}
+				\begin{tabular}{lc}
+					Золото 1000 гр:  & 3 253 614	рублей \\
+					Палладий 100 гр: &  327 391 рублей
 				\end{tabular}
-			
-		\end{frame}
 
-	\section{Вклады в банки}
-		
-		\begin{frame}
-			\frametitle{Что важно?}
-			
-			\col{\textbf{Риски:}}
-			\begin{itemize}
-				\item Рост инфляции в стране
-				\item Банк лишили лицензии
-				\item «Тетрадочные» вклады
-			\end{itemize}
-			
-			\col{\textbf{На что обратить внимание?}}
-			\begin{itemize}
-			\item Пополнение и снятие
-			\item Выплата процентов
-			\item Капитализация
-			\end{itemize}
+				\vspace{10pt}
+			  \textbf{\col{Стоимость слитка при переводе на ОМС}}
+			  \vspace{5pt}
+				\begin{tabular}{lc}
+					Золото 1000 гр:  & 2 755 000	рублей \\
+					Палладий 100 гр: &  275 000 рублей
+				\end{tabular}
+    		\end{center}
 		\end{frame}
+		
+		\begin{frame} \frametitle{Почему именно золото и палладий?}
+		
+		\begin{itemize}
+		\item Золото много где используется и является оцень ценным материалом.
+За последние три года стоимость золота выросла на \textbf{\col{14\%}} .
 
+\vspace{10pt}
+		\item Палладий очень сильно растет последние несколько лет.
+За последние три года стоимость палладия выросла на \textbf{\col{114\%}}.
+		\end{itemize}
 		
-		\begin{frame}
-			\frametitle{}
-		
-		
+
 		\end{frame}
-		
 		\begin{frame}
-			\frametitle{}
-		
-		
-		\end{frame}
-		
-		\begin{frame}
-			\frametitle{}
-		
-		
-		\end{frame}
-		
-		\begin{frame}
-			\frametitle{}
-		
-		
-		\end{frame}
+			\frametitle{Таблица за слиточек золота и палладия}
+				\begin{minipage}[h]{0.5\linewidth}
+				\begin{footnotesize}
+				\begin{tabular}{ccc}
+				\rowcolor{blue!30} Металл & Рост (\%) & Приб./Уб. \\
+				\rowcolor{yellow!30}Золото & 14 & 45980\\
+				\rowcolor{yellow!15} & 13 & 21410\\
+				\rowcolor{yellow!30} & 12 & -3160\\
+				\rowcolor{yellow!15} & 10 & -52300\\
+				\rowcolor{gray!20}Палладий & 100 & 209000\\
+				\rowcolor{gray!10} & 50 & 88000\\
+				\rowcolor{gray!20} & 20 & 15400\\
+				\rowcolor{gray!10} & 10 & -8800\\
+				\end{tabular}
+				\end{footnotesize}
+				\end{minipage}
+				\hspace{5pt}
+				\begin{minipage}[h]{0.4\linewidth}
+				\begin{center}
+				{\includegraphics[width=1\linewidth]{p/metall.jpg}}
+				
+				{\includegraphics[width=1\linewidth]{p/2698408.jpg}}
+				\end{center}
+				\end{minipage}
+						
+						\end{frame}
+				
+				\section{Вклады в банки}
+				\frame{
+							\frametitle{Что важно?}
+							\col{\textbf{Риски:}}
+						\begin{itemize}
+						\item Рост инфляции в стране
+						\item Банк лишили лицензии
+						\item ``Тетрадочные'' вклады
+						\end{itemize}
+						
+						\col{\textbf{На что обратить внимание?}}
+						\begin{itemize}
+						\item Пополнение и снятие
+						\item Выплата процентов
+						\item Капитализаия
+						\end{itemize}
+				}
+						
+				\section{ОФЗ-н}
+						\begin{frame}
+							\frametitle{}
+						
+						
+						\end{frame}
+				
+				\section{ИИС}
+				
+				
+				\section{ПИФы}
 
 \end{document}
